@@ -37,7 +37,7 @@ for p in sys.path:
 			vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
 EOF
 
-source /Users/xa4a/.vim/scripts/pycheck.vim
+"source /Users/xa4a/.vim/scripts/pycheck.vim
 
 autocmd BufWritePre *.py :%s/\s\+$//e
 

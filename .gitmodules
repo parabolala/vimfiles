@@ -7,3 +7,12 @@
 [submodule "bundle/python_fold"]
 	path = bundle/python_fold
 	url = http://github.com/vim-scripts/jpythonfold.vim.git
+[submodule "bundle/NERD_tree-Project"]
+	path = bundle/NERD_tree-Project
+	url = http://github.com/vim-scripts/NERD_tree-Project.git
+[submodule "bundle/NERD_tree"]
+	path = bundle/NERD_tree
+	url = http://github.com/vim-scripts/The-NERD-tree.git
+[submodule "bundle/bufexplorer"]
+	path = bundle/bufexplorer
+	url = http://github.com/vim-scripts/bufexplorer.zip.git
