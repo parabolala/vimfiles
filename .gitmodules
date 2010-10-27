@@ -1,3 +1,9 @@
 [submodule "bundle/conque-shell"]
 	path = bundle/conque-shell
 	url = http://github.com/vim-scripts/Conque-Shell.git
+[submodule "bundle/pyflakes"]
+	path = bundle/pyflakes
+	url = http://github.com/nvie/vim-pyflakes.git
+[submodule "bundle/python_fold"]
+	path = bundle/python_fold
+	url = http://github.com/vim-scripts/jpythonfold.vim.git
