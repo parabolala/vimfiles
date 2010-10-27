@@ -1,0 +1,3 @@
+[submodule "bundle/conque-shell"]
+	path = bundle/conque-shell
+	url = http://github.com/vim-scripts/Conque-Shell.git
