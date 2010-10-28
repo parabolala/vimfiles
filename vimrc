@@ -21,13 +21,6 @@ autocmd FileType r setlocal tabstop=2 shiftwidth=2 expandtab
 
 source ~/.vim/cyr_keys.vim
 
-let pyref_browser="/Applications/Firefox.app/Contents/MacOS/firefox-bin"
-"
-"source /home/xa4a/.vim/scripts/svn.vim
-
-"nmap <C-n> :cn<CR>
-"imap <C-n> <Esc>:cn<CR>
-
 "set t_Co=256
 "colorscheme 256_adaryn
 colorscheme desert
@@ -43,9 +36,6 @@ imap <F2> <Esc>:w<cr>a
 map <C-s> <Esc>:w<CR>
 
 map <F7> <Esc>:NERDTreeToggle<cr>
-
-
-let ScreenShot = {'Icon':0, 'Credits':0, 'Title':0} 
 
 
 let mapleader = ","
@@ -80,13 +70,7 @@ map <Right> :bnext<CR>
 map <Left> :bprev<CR>
 map <Del> :bd<CR>
 
-map <Leader>h :<C-U>!hg blame -fu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
-
 set showcmd
-
-let g:Tex_ViewRule_pdf = 'open'
-let g:Tex_ViewRule_dvi = 'open'
-let g:Tex_ViewRule_ps = 'open'
 
 autocmd FileType tex,plaintex setlocal wrap shiftwidth=2 spell spelllang=uk
 autocmd FileType tex TTarget pdf
