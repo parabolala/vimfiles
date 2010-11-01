@@ -117,3 +117,6 @@ nnoremap <C-l> <C-w>l
 nmap <leader>a :Ack 
 
 nnoremap <F5> :GundoToggle<CR>
+
+set wildignore=*.pyc,*.class,*.obj,*.o,.git
+let g:CommandTMaxHeight=5

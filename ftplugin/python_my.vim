@@ -42,3 +42,4 @@ EOF
 autocmd BufWritePre *.py :%s/\s\+$//e
 
 inoremap # X#
+source ~/.vim/bundle/python_fold/syntax/jpythonfold.vim
