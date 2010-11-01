@@ -2,7 +2,9 @@ let no_plugin_maps=1
 call pathogen#runtime_append_all_bundles()
 
 syntax on
+set magic
 set ignorecase
+set smartcase
 set incsearch
 set tabstop=4
 set autoindent
@@ -120,3 +122,9 @@ nnoremap <F5> :GundoToggle<CR>
 
 set wildignore=*.pyc,*.class,*.obj,*.o,.git
 let g:CommandTMaxHeight=5
+
+set guioptions-=T
+
+" When pressing <leader>cd switch to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>
+
