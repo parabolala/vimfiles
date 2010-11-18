@@ -23,19 +23,20 @@ function! TabWrapperRope()
 endfunction
 
 " ropevim
-source /usr/src/ropevim/ropevim.vim
+"source /usr/src/ropevim/ropevim.vim
+
 let w:m2=matchadd('ErrorMsg','\%81v.*',-1)
 
-imap <Tab> <C-R>=TabWrapperRope()<CR>
+"imap <Tab> <C-R>=TabWrapperRope()<CR>
 
-python << EOF
-import os
-import sys
-import vim
-for p in sys.path:
-	if os.path.isdir(p):
-			vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
-EOF
+"python << EOF
+"import os
+"import sys
+"import vim
+"for p in sys.path:
+"	if os.path.isdir(p):
+"			vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
+"EOF
 
 "source /Users/xa4a/.vim/scripts/pycheck.vim
 
