@@ -132,12 +132,17 @@ map <leader>cd :cd %:p:h<cr>
 " Use space to open/close folds
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
 
-" Make ',e' (in normal mode) give a prompt for opening files
-" in the same dir as the current buffer's file.
-if has("unix")
-    map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-else
-    map <leader>e :e <C-R>=expand("%:p:h") . "\\" <CR>
-endif
+set laststatus=2
+set statusline=
+set statusline+=[%F]
+"set statusline+=[TYPE=%Y] 
+set statusline+=%h%m%r%w%=
+set statusline+=\ %{fugitive#statusline()}\ 
+set statusline+=[FORMAT=%{&ff}]
+set statusline+=[POS=%04l,%04v]
+set statusline+=[%p%%]
+set statusline+=%*
 
+highlight StatusLine ctermfg=black ctermbg=green cterm=NONE
+highlight StatusLineNC ctermfg=black ctermbg=lightblue cterm=NONE
 
