@@ -25,7 +25,8 @@ source ~/.vim/cyr_keys.vim
 
 "set t_Co=256
 "colorscheme 256_adaryn
-colorscheme desert
+"colorscheme desert
+colorscheme liquidcarbon
 hi Normal  ctermbg=17
 
 set cursorline
@@ -127,4 +128,16 @@ set guioptions-=T
 
 " When pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
+
+" Use space to open/close folds
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
+
+" Make ',e' (in normal mode) give a prompt for opening files
+" in the same dir as the current buffer's file.
+if has("unix")
+    map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+else
+    map <leader>e :e <C-R>=expand("%:p:h") . "\\" <CR>
+endif
+
 

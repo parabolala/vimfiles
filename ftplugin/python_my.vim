@@ -12,7 +12,7 @@ setlocal keywordprg=pydoc
 let ropevim_vim_completion=1
 
 iabbrev coding # -*- coding: utf-8 -*-
-abbrev pdb import ipdb;ipdb.set_trace()
+abbrev pdb import vimpdb;vimpdb.set_trace()
 
 function! TabWrapperRope()
   if strpart(getline('.'), 0, col('.')-1) =~ '^\s*$'
@@ -45,15 +45,6 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 inoremap # X#
 source ~/.vim/bundle/python_fold/syntax/jpythonfold.vim
 
-" Execute a selection of code (very cool!)
-" Use VISUAL to select a range and then hit ctrl-h to execute it.
-python << EOL
-import vim
-def EvaluateCurrentRange():
-    eval(compile('\n'.join(vim.current.range),'','exec'),globals())
-EOL
-map <C-h> :py EvaluateCurrentRange()
-
 " Use F6/Shift-F6 to add/remove a breakpoint (pdb.set_trace)
 " Totally cool.
 python << EOF
@@ -65,14 +56,14 @@ def SetBreakpoint():
     strWhite = re.search( '^(\s*)', strLine).group(1)
 
     vim.current.buffer.append(
-       "%(space)sipdb.set_trace() %(mark)s Breakpoint %(mark)s" %
+       "%(space)svimpdb.set_trace() %(mark)s Breakpoint %(mark)s" %
          {'space':strWhite, 'mark': '#' * 30}, nLine - 1)
 
     for strLine in vim.current.buffer:
-        if strLine == "import ipdb":
+        if strLine == "import vimpdb":
             break
     else:
-        vim.current.buffer.append( 'import ipdb', 0)
+        vim.current.buffer.append( 'import vimpdb', 0)
         vim.command( 'normal j1')
 
 vim.command('map <f6> :py SetBreakpoint()<cr>')
@@ -85,7 +76,7 @@ def RemoveBreakpoints():
     nLines = []
     nLine = 1
     for strLine in vim.current.buffer:
-        if strLine == "import ipdb" or strLine.lstrip()[:16] == "ipdb.set_trace()":
+        if strLine == "import vimpdb" or strLine.lstrip()[:16] == "vimpdb.set_trace()":
             nLines.append( nLine)
         nLine += 1
 
