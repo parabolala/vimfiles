@@ -135,6 +135,7 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
 set laststatus=2
 set statusline=
 set statusline+=[%F]
+"set statusline+=[%{expand('%:p:h')}/%F]
 "set statusline+=[TYPE=%Y] 
 set statusline+=%h%m%r%w%=
 set statusline+=\ %{fugitive#statusline()}\ 
@@ -146,3 +147,17 @@ set statusline+=%*
 highlight StatusLine ctermfg=black ctermbg=green cterm=NONE
 highlight StatusLineNC ctermfg=black ctermbg=lightblue cterm=NONE
 
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+ 
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+
+map w!! w !sudo tee % >/dev/null

@@ -12,7 +12,9 @@ setlocal keywordprg=pydoc
 let ropevim_vim_completion=1
 
 iabbrev coding # -*- coding: utf-8 -*-
-abbrev pdb import vimpdb;vimpdb.set_trace()
+abbrev pdb import ipdb;ipdb.set_trace()
+
+call indent_guides#toggle()
 
 function! TabWrapperRope()
   if strpart(getline('.'), 0, col('.')-1) =~ '^\s*$'
@@ -92,3 +94,5 @@ def RemoveBreakpoints():
 
 vim.command( "map <s-f6> :py RemoveBreakpoints()<cr>")
 EOF
+
+
