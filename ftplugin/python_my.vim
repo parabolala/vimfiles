@@ -95,4 +95,4 @@ def RemoveBreakpoints():
 vim.command( "map <s-f6> :py RemoveBreakpoints()<cr>")
 EOF
 
-
+set cinoptions=(0

@@ -52,6 +52,9 @@
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
-[submodule "bundle/gitcd"]
-	path = bundle/gitcd
-	url = git://github.com/xoebus/vim-gitcd.git
+[submodule "bundle/extradite"]
+	path = bundle/extradite
+	url = git://github.com/int3/vim-extradite.git
+[submodule "bundle/vim-rooter"]
+	path = bundle/vim-rooter
+	url = https://github.com/teranex/vim-rooter.git

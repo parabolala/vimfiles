@@ -161,3 +161,5 @@ function! s:align()
 endfunction
 
 map w!! w !sudo tee % >/dev/null
+
+autocmd BufEnter * :Rooter
