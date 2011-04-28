@@ -58,3 +58,21 @@
 [submodule "bundle/vim-rooter"]
 	path = bundle/vim-rooter
 	url = https://github.com/teranex/vim-rooter.git
+[submodule "indentpython.vim"]
+	path = indentpython.vim
+	url = https://github.com/vim-scripts/indentpython.vim.git
+[submodule "bundle/vim-easymotion"]
+	path = bundle/vim-easymotion
+	url = https://github.com/Lokaltog/vim-easymotion.git
+[submodule "bundle/get-file-plus"]
+	path = bundle/get-file-plus
+	url = https://github.com/vim-scripts/GetFilePlus.git
+[submodule "bundle/sparkup"]
+	path = bundle/sparkup
+	url = https://github.com/bingaman/vim-sparkup.git
+[submodule "bundle/pylint"]
+	path = bundle/pylint
+	url = https://github.com/vim-scripts/pylint.vim.git
+[submodule "bundle/ropevim"]
+	path = bundle/ropevim
+	url = https://github.com/klen/rope-vim.git
