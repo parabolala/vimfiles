@@ -96,3 +96,17 @@ vim.command( "map <s-f6> :py RemoveBreakpoints()<cr>")
 EOF
 
 set cinoptions=(0
+
+let ropevim_vim_completion=1
+let ropevim_extended_complete=1
+
+function! TabWrapperRope()
+if strpart(getline('.'), 0, col('.')-1) =~ '^\s*$'
+return "\"
+else
+return "\<C-R>=RopeCodeAssistInsertMode()\"
+endif
+endfunction
+
+silent imap <C-Space>=TabWrapperRope()
+map <F2> :call RopeGotoDefinition

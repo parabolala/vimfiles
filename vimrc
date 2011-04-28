@@ -163,3 +163,35 @@ endfunction
 map w!! w !sudo tee % >/dev/null
 
 autocmd BufEnter * :Rooter
+
+" Easier bracket matching {{{
+nnoremap <Tab> %
+" }}}
+
+" Repurpose arrow keys to move lines {{{
+" Inspired by http://jeetworks.com/node/89
+
+" Arrow key remapping: {{{
+" Left/Right = indent/unindent
+function! SetArrowKeysAsTextShifters()
+    " Normal mode
+    nnoremap <silent> <Left>   <<
+    nnoremap <silent> <Right>  >>
+    "nnoremap <silent> <Up>     <Esc>:call <SID>MoveLineUp()<CR>
+    "nnoremap <silent> <Down>   <Esc>:call <SID>MoveLineDown()<CR>
+
+    " Visual mode
+    vnoremap <silent> <Left>   <gv
+    vnoremap <silent> <Right>  >gv
+    "vnoremap <silent> <S-Up>   <Esc>:call <SID>MoveVisualUp()<CR>
+    "vnoremap <silent> <S-Down> <Esc>:call <SID>MoveVisualDown()<CR>
+
+    " Insert mode
+    "inoremap <silent> <Left>   <C-D>
+    "inoremap <silent> <Right>  <C-T>
+    "inoremap <silent> <Up>     <C-O>:call <SID>MoveLineUp()<CR>
+    "inoremap <silent> <Down>   <C-O>:call <SID>MoveLineDown()<CR>
+endfunction
+
+call SetArrowKeysAsTextShifters()
+" }}}
