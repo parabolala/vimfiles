@@ -10,6 +10,7 @@ set completeopt+=longest
 setlocal keywordprg=pydoc
 
 let ropevim_vim_completion=1
+let ropevim_extended_complete=1
 
 iabbrev coding # -*- coding: utf-8 -*-
 abbrev pdb import ipdb;ipdb.set_trace()

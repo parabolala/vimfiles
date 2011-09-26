@@ -1,9 +1,6 @@
 [submodule "bundle/conque-shell"]
 	path = bundle/conque-shell
 	url = http://github.com/vim-scripts/Conque-Shell.git
-[submodule "bundle/pyflakes"]
-	path = bundle/pyflakes
-	url = http://github.com/nvie/vim-pyflakes.git
 [submodule "bundle/python_fold"]
 	path = bundle/python_fold
 	url = http://github.com/vim-scripts/jpythonfold.vim.git
@@ -58,3 +55,12 @@
 [submodule "bundle/vim-rooter"]
 	path = bundle/vim-rooter
 	url = https://github.com/teranex/vim-rooter.git
+[submodule "bundle/rope-vim"]
+	path = bundle/rope-vim
+	url = https://github.com/klen/rope-vim.git
+[submodule "bundle/pyflakes-vim"]
+	path = bundle/pyflakes-vim
+	url = https://github.com/kevinw/pyflakes-vim.git
+[submodule "bundle/ctrlp"]
+	path = bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
