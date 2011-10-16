@@ -16,6 +16,8 @@ set ruler
 set expandtab
 set shiftwidth=4
 set wildmenu
+set splitright
+set splitbelow
 
 filetype plugin indent on
 autocmd FileType xhtml,html,htmldjango setlocal tabstop=2 shiftwidth=2 expandtab
@@ -42,6 +44,7 @@ map <F7> <Esc>:NERDTreeToggle<cr>
 
 
 let mapleader = ","
+
 nmap <leader>w :w!<cr>
 
 " Fast editing of the .vimrc
@@ -77,7 +80,7 @@ set showcmd
 
 autocmd FileType tex,plaintex setlocal wrap shiftwidth=2 spell spelllang=uk
 autocmd FileType tex TTarget pdf
-autocmd FileType tex let g:Tex_CompileRule_pdf='scons -I '
+autocmd FileType tex let g:Tex_CompileRule_pdf='yes "" | pdflatex '
 autocmd FileType tex let g:Tex_ViewRule_pdf='open $*.pdf &'
 let g:Tex_IgnoredWarnings =
             \"Underfull\n".
@@ -162,7 +165,7 @@ endfunction
 
 map w!! w !sudo tee % >/dev/null
 
-autocmd BufEnter * :Rooter
+"autocmd BufEnter * :Rooter
 
 " Easier bracket matching {{{
 nnoremap <Tab> %
@@ -195,3 +198,6 @@ endfunction
 
 call SetArrowKeysAsTextShifters()
 " }}}
+
+" Switch parameters
+nnoremap <leader>sp mob"acw%1<esc>ww"bcw%2<esc>:s/%1/<c-r>b<cr>:s/%2/<c-r>a<cr>`o

@@ -1,6 +1,3 @@
-[submodule "bundle/conque-shell"]
-	path = bundle/conque-shell
-	url = http://github.com/vim-scripts/Conque-Shell.git
 [submodule "bundle/pyflakes"]
 	path = bundle/pyflakes
 	url = http://github.com/nvie/vim-pyflakes.git
@@ -61,9 +58,6 @@
 [submodule "indentpython.vim"]
 	path = indentpython.vim
 	url = https://github.com/vim-scripts/indentpython.vim.git
-[submodule "bundle/vim-easymotion"]
-	path = bundle/vim-easymotion
-	url = https://github.com/Lokaltog/vim-easymotion.git
 [submodule "bundle/get-file-plus"]
 	path = bundle/get-file-plus
 	url = https://github.com/vim-scripts/GetFilePlus.git
