@@ -1,6 +1,3 @@
-[submodule "bundle/conque-shell"]
-	path = bundle/conque-shell
-	url = http://github.com/vim-scripts/Conque-Shell.git
 [submodule "bundle/python_fold"]
 	path = bundle/python_fold
 	url = http://github.com/vim-scripts/jpythonfold.vim.git
@@ -67,3 +64,24 @@
 [submodule "bundle/protobuf"]
 	path = bundle/protobuf
 	url = https://github.com/jdevera/vim-protobuf-syntax.git
+[submodule "indentpython.vim"]
+	path = indentpython.vim
+	url = https://github.com/vim-scripts/indentpython.vim.git
+[submodule "bundle/sparkup"]
+	path = bundle/sparkup
+	url = https://github.com/bingaman/vim-sparkup.git
+[submodule "bundle/ropevim"]
+	path = bundle/ropevim
+	url = https://github.com/klen/rope-vim.git
+[submodule "bundle/gitv"]
+	path = bundle/gitv
+	url = https://github.com/gregsexton/gitv.git
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "bundle/buffergator"]
+	path = bundle/buffergator
+	url = https://github.com/jeetsukumaran/vim-buffergator.git
+[submodule "bundle/jslint"]
+	path = bundle/jslint
+	url = https://github.com/hallettj/jslint.vim.git
