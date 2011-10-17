@@ -64,3 +64,6 @@
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule "bundle/protobuf"]
+	path = bundle/protobuf
+	url = https://github.com/jdevera/vim-protobuf-syntax.git

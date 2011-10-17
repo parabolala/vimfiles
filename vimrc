@@ -50,7 +50,7 @@ map <leader>e :e! ~/.vimrc<cr>
 " When vimrc is edited, reload it
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
-" extended % matching for HTML, LaTeX, and many other languages 
+" extended % matching for HTML, LaTeX, and many other languages
 runtime macros/matchit.vim
 
 set title
@@ -69,8 +69,6 @@ nmap <silent> <leader>s :set nolist!<CR>
 map H ^
 map L $
 
-map <Right> :bnext<CR>
-map <Left> :bprev<CR>
 map <Del> :bd<CR>
 
 set showcmd
@@ -121,13 +119,13 @@ nmap <leader>a :Ack
 
 nnoremap <F5> :GundoToggle<CR>
 
-set wildignore=*.pyc,*.class,*.obj,*.o,.git
+set wildignore=*.pyc,*.class,*.obj,*.o,.git,.hg,.svn
 let g:CommandTMaxHeight=5
 
 set guioptions-=T
 
 " When pressing <leader>cd switch to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>
+"map <leader>cd :cd %:p:h<cr>
 
 " Use space to open/close folds
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
@@ -136,9 +134,9 @@ set laststatus=2
 set statusline=
 set statusline+=[%F]
 "set statusline+=[%{expand('%:p:h')}/%F]
-"set statusline+=[TYPE=%Y] 
+"set statusline+=[TYPE=%Y]
 set statusline+=%h%m%r%w%=
-set statusline+=\ %{fugitive#statusline()}\ 
+set statusline+=\ %{fugitive#statusline()}\
 set statusline+=[FORMAT=%{&ff}]
 set statusline+=[POS=%04l,%04v]
 set statusline+=[%p%%]
@@ -148,7 +146,7 @@ highlight StatusLine ctermfg=black ctermbg=green cterm=NONE
 highlight StatusLineNC ctermfg=black ctermbg=lightblue cterm=NONE
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
- 
+
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'
   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
@@ -163,3 +161,15 @@ endfunction
 map w!! w !sudo tee % >/dev/null
 
 autocmd BufEnter * :Rooter
+
+vnoremap < <gv
+vnoremap > >gv
+vnoremap <Left> <gv
+nnoremap <Left> <<
+vnoremap <Right> >gv
+nnoremap <Right> >>
+
+autocmd BufWritePre * :%s/\s\+$//e
+
+" Switch parameters
+nnoremap <leader>sp mob"acw%1<esc>ww"bcw%2<esc>:s/%1/<c-r>b<cr>:s/%2/<c-r>a<cr>`o
