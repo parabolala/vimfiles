@@ -105,9 +105,11 @@ set mouse=a
 set undofile
 set undodir=~/.undo
 
-au FileType python set colorcolumn=80
+"au FileType python set colorcolumn=80
+set colorcolumn=80
 hi ColorColumn guibg=#5d5d5d
 
+map <D-`> :maca _cycleWindows:<CR>
 map <D-ё> :maca _cycleWindows:<CR>
 
 nnoremap ; :
