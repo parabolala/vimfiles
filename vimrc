@@ -124,7 +124,7 @@ nmap <leader>a :Ack
 
 nnoremap <F5> :GundoToggle<CR>
 
-set wildignore=*.pyc,*.class,*.obj,*.o,.git,.hg,.svn
+set wildignore=*.pyc,*.class,*.obj,*.o,.git,.hg,.svn,.ropeproject
 let g:CommandTMaxHeight=5
 
 set guioptions-=T
@@ -201,5 +201,5 @@ endfunction
 call SetArrowKeysAsTextShifters()
 " }}}
 
-" Switch parameters
-nnoremap <leader>sp mob"acw%1<esc>ww"bcw%2<esc>:s/%1/<c-r>b<cr>:s/%2/<c-r>a<cr>`o
+
+source ~/.vim/google_my.vim
