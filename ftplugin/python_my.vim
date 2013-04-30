@@ -14,41 +14,13 @@ let g:SuperTabDefaultCompletionType = "context"
 
 set tabstop=2
 
-let ropevim_vim_completion=1
-let ropevim_extended_complete=1
 
 iabbrev coding # -*- coding: utf-8 -*-
 abbrev pdb import ipdb;ipdb.set_trace()
 
 call indent_guides#toggle()
 
-function! TabWrapperRope()
-  if strpart(getline('.'), 0, col('.')-1) =~ '^\s*$'
-    return "\<Tab>"
-  else
-    return "\<C-R>=RopeCodeAssistInsertMode()\<CR>"
-  endif
-endfunction
-
-" ropevim
-"source /usr/src/ropevim/ropevim.vim
-
 let w:m2=matchadd('ErrorMsg','\%81v.*',-1)
-
-silent imap <C-Space>=TabWrapperRope()<CR>
-imap <Tab> <C-R>=TabWrapperRope()<CR>
-map <F2> :call RopeGotoDefinition
-
-"python << EOF
-"import os
-"import sys
-"import vim
-"for p in sys.path:
-"	if os.path.isdir(p):
-"			vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
-"EOF
-
-"source /Users/xa4a/.vim/scripts/pycheck.vim
 
 augroup python_my
     autocmd!

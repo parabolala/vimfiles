@@ -131,7 +131,6 @@ nmap <leader>a :Ack
 nnoremap <F5> :GundoToggle<CR>
 
 set wildignore=*.pyc,*.class,*.obj,*.o,.git,.hg,.svn,.ropeproject
-let g:CommandTMaxHeight=5
 
 set guioptions-=T
 
