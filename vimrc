@@ -35,6 +35,7 @@ augroup vimrc_main
 
     " When vimrc is edited, reload it
     autocmd bufwritepost .vimrc source ~/.vimrc
+    autocmd FocusLost * :wa
 augroup END
 
 source ~/.vim/cyr_keys.vim
@@ -49,21 +50,16 @@ set cursorline
 "22 for nice green line
 hi CursorLine ctermbg=235 cterm=none
 
-hi Pmenu ctermbg=239
-
-imap <F2> <Esc>:w<cr>a
-map <C-s> <Esc>:w<CR>
+highlight Pmenu ctermbg=239
 
 map <F7> <Esc>:NERDTreeToggle<cr>
 
 
 let mapleader = ","
 
-nmap <leader>w :w!<cr>
-
 " Fast editing of the .vimrc
-map <leader>e :e! ~/.vimrc<cr>
-
+nnoremap <leader>e :e! $MYVIMRC<cr>
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 " extended % matching for HTML, LaTeX, and many other languages
 runtime macros/matchit.vim
@@ -76,15 +72,13 @@ set noswapfile
 
 set backspace=indent,eol,start
 set hlsearch
-nmap <silent> <leader>n :silent :set hlsearch!<CR>
+noremap <silent> <leader>n :silent :set hlsearch!<CR>
 
 "set listchars=tab:>-,trail:·,eol:$
-nmap <silent> <leader>s :set nolist!<CR>
+nnoremap <silent> <leader>s :set nolist!<CR>
 " ease of use keyboard mappings (why do I care about top/bottom of screen?)
-map H ^
-map L $
-
-map <Del> :bd<CR>
+noremap H ^
+noremap L $
 
 set showcmd
 
@@ -114,7 +108,7 @@ set undodir=~/.undo
 
 "au FileType python set colorcolumn=80
 set colorcolumn=80
-hi ColorColumn guibg=#5d5d5d
+highlight ColorColumn guibg=#5d5d5d
 
 map <D-`> :maca _cycleWindows:<CR>
 map <D-ё> :maca _cycleWindows:<CR>
@@ -126,7 +120,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-nmap <leader>a :Ack
+nnoremap <leader>a :Ack
 
 nnoremap <F5> :GundoToggle<CR>
 
@@ -145,8 +139,8 @@ set statusline=
 set statusline+=[%F]
 "set statusline+=[%{expand('%:p:h')}/%F]
 "set statusline+=[TYPE=%Y]
-set statusline+=%h%m%r%w%=
-set statusline+=\ %{fugitive#statusline()}\
+set statusline+=%h%M%r%w%=
+set statusline+=\ %{fugitive#statusline()}\ 
 set statusline+=[FORMAT=%{&ff}]
 set statusline+=[POS=%04l,%04v]
 set statusline+=[%p%%]
@@ -168,7 +162,7 @@ function! s:align()
   endif
 endfunction
 
-map w!! w !sudo tee % >/dev/null
+noremap w!! w !sudo tee % >/dev/null
 
 " Easier bracket matching {{{
 nnoremap <Tab> %
@@ -201,6 +195,9 @@ endfunction
 
 call SetArrowKeysAsTextShifters()
 " }}}
+nnoremap <F8> :TagbarToggle<CR>
 
+let g:jedi#popup_on_dot = 0
 
-source ~/.vim/google_my.vim
+" Split string (opposite of J).
+nnoremap K i<cr><esc>k$

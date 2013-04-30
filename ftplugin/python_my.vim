@@ -1,22 +1,22 @@
 setlocal omnifunc=pythoncomplete#Complete
 
-set shiftwidth=2
+setlocal shiftwidth=2
 
-set complete=""
-set complete+=.
-set complete+=k
-set complete+=b
-set complete+=t
-set completeopt+=menuone,longest,preview
+setlocal complete=""
+setlocal complete+=.
+setlocal complete+=k
+setlocal complete+=b
+setlocal complete+=t
+setlocal completeopt+=menuone,longest,preview
 setlocal keywordprg=pydoc
 
 let g:SuperTabDefaultCompletionType = "context"
 
-set tabstop=2
+setlocal tabstop=2
 
-
-iabbrev coding # -*- coding: utf-8 -*-
-abbrev pdb import ipdb;ipdb.set_trace()
+inoreabbrev coding # -*- coding: utf-8 -*-
+inoreabbrev ipdb import ipdb;ipdb.set_trace()
+inoreabbrev pdb import pdb;pdb.set_trace()
 
 call indent_guides#toggle()
 
