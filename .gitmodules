@@ -16,9 +16,6 @@
 [submodule "bundle/indent-object"]
 	path = bundle/indent-object
 	url = http://github.com/michaeljsmith/vim-indent-object.git
-[submodule "bundle/scmdiff/plugin"]
-	path = bundle/scmdiff/plugin
-	url = http://github.com/ghewgill/vim-scmdiff.git
 [submodule "bundle/surround"]
 	path = bundle/surround
 	url = http://github.com/tpope/vim-surround.git
@@ -85,3 +82,15 @@
 [submodule "bundle/ctrlp.vim"]
 	path = bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule "bundle/jedi-vim"]
+	path = bundle/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim.git
+[submodule "bundle/cute-python"]
+	path = bundle/cute-python
+	url = https://github.com/ehamberg/vim-cute-python.git
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
