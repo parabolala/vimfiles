@@ -20,8 +20,22 @@ set splitright
 set splitbelow
 
 filetype plugin indent on
-autocmd FileType xhtml,html,htmldjango setlocal tabstop=2 shiftwidth=2 expandtab
-autocmd FileType r setlocal tabstop=2 shiftwidth=2 expandtab
+augroup vimrc_main
+    autocmd!
+    autocmd FileType xhtml,html,htmldjango setlocal tabstop=2 shiftwidth=2 expandtab
+    autocmd FileType r setlocal tabstop=2 shiftwidth=2 expandtab
+
+    autocmd FileType tex,plaintex setlocal wrap shiftwidth=2 spell spelllang=uk
+    autocmd FileType tex TTarget pdf
+    autocmd FileType tex let g:Tex_CompileRule_pdf='yes "" | pdflatex '
+    autocmd FileType tex let g:Tex_ViewRule_pdf='open $*.pdf &'
+
+    autocmd BufWritePre *.py :%s/\s\+$//e
+    autocmd BufEnter * :Rooter
+
+    " When vimrc is edited, reload it
+    autocmd bufwritepost .vimrc source ~/.vimrc
+augroup END
 
 source ~/.vim/cyr_keys.vim
 
@@ -50,8 +64,6 @@ nmap <leader>w :w!<cr>
 " Fast editing of the .vimrc
 map <leader>e :e! ~/.vimrc<cr>
 
-" When vimrc is edited, reload it
-autocmd! bufwritepost .vimrc source ~/.vimrc
 
 " extended % matching for HTML, LaTeX, and many other languages
 runtime macros/matchit.vim
@@ -76,10 +88,6 @@ map <Del> :bd<CR>
 
 set showcmd
 
-autocmd FileType tex,plaintex setlocal wrap shiftwidth=2 spell spelllang=uk
-autocmd FileType tex TTarget pdf
-autocmd FileType tex let g:Tex_CompileRule_pdf='yes "" | pdflatex '
-autocmd FileType tex let g:Tex_ViewRule_pdf='open $*.pdf &'
 let g:Tex_IgnoredWarnings =
             \"Underfull\n".
             \"Overfull\n".
@@ -91,7 +99,6 @@ let g:Tex_IgnoredWarnings =
             \'LaTeX Font Warning:'"
 " This number N says that latex-suite should ignore the first N of the above.
 let g:Tex_IgnoreLevel = 8
-au BufRead,BufNewFile *.tex setfiletype tex
 
 
 
@@ -113,7 +120,6 @@ map <D-`> :maca _cycleWindows:<CR>
 map <D-ё> :maca _cycleWindows:<CR>
 
 nnoremap ; :
-au FocusLost * :wa
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -164,10 +170,6 @@ function! s:align()
 endfunction
 
 map w!! w !sudo tee % >/dev/null
-
-autocmd BufEnter * :Rooter
-autocmd BufWritePre * :%s/\s\+$//e
-"autocmd BufEnter * :Rooter
 
 " Easier bracket matching {{{
 nnoremap <Tab> %

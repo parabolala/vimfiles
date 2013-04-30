@@ -50,14 +50,15 @@ map <F2> :call RopeGotoDefinition
 
 "source /Users/xa4a/.vim/scripts/pycheck.vim
 
-autocmd BufWritePre *.py :%s/\s\+$//e
+augroup python_my
+    autocmd!
+    autocmd BufWritePre *.py :%s/\s\+$//e
+augroup END
 
 inoremap # X#
 source ~/.vim/bundle/python_fold/syntax/jpythonfold.vim
 
 set cinoptions=(0
-
-
 
 " Add the virtualenv's site-packages to vim path
 py << EOF
