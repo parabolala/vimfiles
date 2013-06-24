@@ -82,9 +82,6 @@
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
-[submodule "bundle/jedi-vim"]
-	path = bundle/jedi-vim
-	url = https://github.com/davidhalter/jedi-vim.git
 [submodule "bundle/cute-python"]
 	path = bundle/cute-python
 	url = https://github.com/ehamberg/vim-cute-python.git
