@@ -58,9 +58,6 @@
 [submodule "bundle/protobuf"]
 	path = bundle/protobuf
 	url = https://github.com/jdevera/vim-protobuf-syntax.git
-[submodule "indentpython.vim"]
-	path = indentpython.vim
-	url = https://github.com/vim-scripts/indentpython.vim.git
 [submodule "bundle/sparkup"]
 	path = bundle/sparkup
 	url = https://github.com/bingaman/vim-sparkup.git
