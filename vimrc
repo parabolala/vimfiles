@@ -1,5 +1,5 @@
 let no_plugin_maps=1
-call pathogen#runtime_append_all_bundles()
+source ~/.vim/vundle.vim
 
 syntax on
 set magic
