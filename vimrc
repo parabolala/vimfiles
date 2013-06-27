@@ -201,3 +201,7 @@ let g:jedi#popup_on_dot = 0
 
 " Split string (opposite of J).
 nnoremap K i<cr><esc>k$
+
+if filereadable("~/.vim/local.vim")
+  source ~/.vim/local.vim
+endif

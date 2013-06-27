@@ -28,7 +28,7 @@ augroup python_my
 augroup END
 
 inoremap # X#
-source ~/.vim/bundle/python_fold/syntax/jpythonfold.vim
+source ~/.vim/bundle/jpythonfold.vim/syntax/jpythonfold.vim
 
 set cinoptions=(0
 
