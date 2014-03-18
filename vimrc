@@ -31,10 +31,12 @@ augroup vimrc_main
     autocmd FileType tex let g:Tex_ViewRule_pdf='open $*.pdf &'
 
     autocmd BufWritePre *.py :%s/\s\+$//e
+    autocmd BufWritePre *.proto :%s/\s\+$//e
     autocmd BufEnter * :Rooter
 
     " When vimrc is edited, reload it
     autocmd bufwritepost .vimrc source ~/.vimrc
+    autocmd bufwritepost vundle.vim source ~/.vim/vundle.vim
     autocmd FocusLost * :wa
 augroup END
 
@@ -104,6 +106,7 @@ inoremap kj <Esc>
 set mouse=a
 
 set undofile
+" Note: this directory has to be created manually.
 set undodir=~/.undo
 
 "au FileType python set colorcolumn=80
@@ -200,7 +203,7 @@ nnoremap <F8> :TagbarToggle<CR>
 let g:jedi#popup_on_dot = 0
 
 " Split string (opposite of J).
-nnoremap K i<cr><esc>k$
+nnoremap K a<cr><esc>k$
 
 if filereadable($HOME . "/.vim/local.vim")
   source ~/.vim/local.vim
