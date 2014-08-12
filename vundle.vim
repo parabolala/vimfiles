@@ -5,7 +5,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 " My Bundles here:
@@ -35,10 +35,14 @@ Bundle 'gregsexton/gitv'
 Bundle 'ervandew/supertab'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'hallettj/jslint.vim'
-Bundle 'kien/ctrlp.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'ehamberg/vim-cute-python'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'FelikZ/ctrlp-py-matcher'
+Bundle "nsf/gocode", {'rtp': 'vim/'}
+Bundle "vim-scripts/ScreenShot"
+Bundle "davidhalter/jedi-vim.git"
 
 " vim-scripts repos
 "Bundle 'L9'

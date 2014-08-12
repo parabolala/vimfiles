@@ -13,17 +13,19 @@ set number
 set nowrap
 set nocompatible
 set ruler
-set expandtab
-set shiftwidth=4
 set wildmenu
+set wrapscan
 set splitright
 set splitbelow
 
 filetype plugin indent on
 augroup vimrc_main
     autocmd!
+    autocmd FileType python
     autocmd FileType xhtml,html,htmldjango setlocal tabstop=2 shiftwidth=2 expandtab
     autocmd FileType r setlocal tabstop=2 shiftwidth=2 expandtab
+    autocmd FileType go setlocal shiftwidth=4 colorcolumn=
+    autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
     autocmd FileType tex,plaintex setlocal wrap shiftwidth=2 spell spelllang=uk
     autocmd FileType tex TTarget pdf
@@ -76,7 +78,7 @@ set backspace=indent,eol,start
 set hlsearch
 noremap <silent> <leader>n :silent :set hlsearch!<CR>
 
-"set listchars=tab:>-,trail:·,eol:$
+set listchars=tab:>-,trail:·,eol:$
 nnoremap <silent> <leader>s :set nolist!<CR>
 " ease of use keyboard mappings (why do I care about top/bottom of screen?)
 noremap H ^
@@ -110,7 +112,6 @@ set undofile
 set undodir=~/.undo
 
 "au FileType python set colorcolumn=80
-set colorcolumn=80
 highlight ColorColumn guibg=#5d5d5d
 
 map <D-`> :maca _cycleWindows:<CR>
@@ -152,19 +153,6 @@ set statusline+=%*
 highlight StatusLine ctermfg=black ctermbg=green cterm=NONE
 highlight StatusLineNC ctermfg=black ctermbg=lightblue cterm=NONE
 
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
-
 noremap w!! w !sudo tee % >/dev/null
 
 " Easier bracket matching {{{
@@ -205,6 +193,31 @@ let g:jedi#popup_on_dot = 0
 " Split string (opposite of J).
 nnoremap K a<cr><esc>k$
 
+" PyMatcher for CtrlP
+if !has('python')
+    echo 'In order to use pymatcher plugin, you need +python compiled vim'
+else
+    let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+endif
+
+" Set delay to prevent extra search
+let g:ctrlp_lazy_update = 350
+
+" Do not clear filenames cache, to improve CtrlP startup
+" You can manualy clear it by <F5>
+let g:ctrlp_clear_cache_on_exit = 0
+
+" Set no file limit, we are building a big project
+let g:ctrlp_max_files = 0
+
+" If ag is available use it as filename list generator instead of 'find'
+if executable("ag")
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''node_modules'' --hidden -g ""'
+endif
+
 if filereadable($HOME . "/.vim/local.vim")
   source ~/.vim/local.vim
 endif
+
+set nolist

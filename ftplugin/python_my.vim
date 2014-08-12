@@ -9,6 +9,7 @@ setlocal complete+=b
 setlocal complete+=t
 setlocal completeopt+=menuone,longest,preview
 setlocal keywordprg=pydoc
+setlocal colorcolumn=80
 
 let g:SuperTabDefaultCompletionType = "context"
 
