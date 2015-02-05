@@ -12,3 +12,5 @@ endfunction
 call JavaScriptFold()
 setl fen
 
+set shiftwidth=4
+set expandtab

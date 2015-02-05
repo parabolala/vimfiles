@@ -1,4 +1,5 @@
 let no_plugin_maps=1
+
 source ~/.vim/vundle.vim
 
 syntax on
@@ -21,11 +22,10 @@ set splitbelow
 filetype plugin indent on
 augroup vimrc_main
     autocmd!
-    autocmd FileType python
+	autocmd FileType python set colorcolumn=80
     autocmd FileType xhtml,html,htmldjango setlocal tabstop=2 shiftwidth=2 expandtab
     autocmd FileType r setlocal tabstop=2 shiftwidth=2 expandtab
     autocmd FileType go setlocal shiftwidth=4 colorcolumn=
-    autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
     autocmd FileType tex,plaintex setlocal wrap shiftwidth=2 spell spelllang=uk
     autocmd FileType tex TTarget pdf
@@ -111,7 +111,6 @@ set undofile
 " Note: this directory has to be created manually.
 set undodir=~/.undo
 
-"au FileType python set colorcolumn=80
 highlight ColorColumn guibg=#5d5d5d
 
 map <D-`> :maca _cycleWindows:<CR>
@@ -189,6 +188,10 @@ call SetArrowKeysAsTextShifters()
 nnoremap <F8> :TagbarToggle<CR>
 
 let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+
+let g:ycm_autoclose_preview_window_after_completion=1
+nnoremap <C-]> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Split string (opposite of J).
 nnoremap K a<cr><esc>k$
@@ -221,3 +224,4 @@ if filereadable($HOME . "/.vim/local.vim")
 endif
 
 set nolist
+
