@@ -23,11 +23,6 @@ call indent_guides#toggle()
 
 let w:m2=matchadd('ErrorMsg','\%81v.*',-1)
 
-augroup python_my
-    autocmd!
-    autocmd BufWritePre *.py :%s/\s\+$//e
-augroup END
-
 inoremap # X#
 source ~/.vim/bundle/jpythonfold.vim/syntax/jpythonfold.vim
 

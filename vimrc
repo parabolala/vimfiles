@@ -1,5 +1,3 @@
-let no_plugin_maps=1
-
 source ~/.vim/vundle.vim
 
 syntax on
@@ -22,33 +20,26 @@ set splitbelow
 filetype plugin indent on
 augroup vimrc_main
     autocmd!
-	autocmd FileType python set colorcolumn=80
     autocmd FileType xhtml,html,htmldjango setlocal tabstop=2 shiftwidth=2 expandtab
     autocmd FileType r setlocal tabstop=2 shiftwidth=2 expandtab
-    autocmd FileType go setlocal shiftwidth=4 colorcolumn=
 
-    autocmd FileType tex,plaintex setlocal wrap shiftwidth=2 spell spelllang=uk
-    autocmd FileType tex TTarget pdf
-    autocmd FileType tex let g:Tex_CompileRule_pdf='yes "" | pdflatex '
-    autocmd FileType tex let g:Tex_ViewRule_pdf='open $*.pdf &'
+    autocmd FileType plaintex setlocal wrap shiftwidth=2 spell spelllang=uk
 
-    autocmd BufWritePre *.py :%s/\s\+$//e
-    autocmd BufWritePre *.proto :%s/\s\+$//e
     autocmd BufEnter * :Rooter
 
     " When vimrc is edited, reload it
     autocmd bufwritepost .vimrc source ~/.vimrc
     autocmd bufwritepost vundle.vim source ~/.vim/vundle.vim
+
     autocmd FocusLost * :wa
+
+    autocmd BufWritePre *.py :%s/\s\+$//e
 augroup END
 
 source ~/.vim/cyr_keys.vim
 
-"set t_Co=256
-"colorscheme 256_adaryn
-"colorscheme desert
 colorscheme liquidcarbon
-hi Normal  ctermbg=17
+hi Normal ctermbg=17
 
 set cursorline
 "22 for nice green line
@@ -56,7 +47,6 @@ hi CursorLine ctermbg=235 cterm=none
 
 highlight Pmenu ctermbg=239
 
-map <F7> <Esc>:NERDTreeToggle<cr>
 
 
 let mapleader = ","
@@ -65,14 +55,10 @@ let mapleader = ","
 nnoremap <leader>e :e! $MYVIMRC<cr>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
-" extended % matching for HTML, LaTeX, and many other languages
-runtime macros/matchit.vim
-
 set title
 set scrolloff=3
 set nobackup
 set noswapfile
-
 
 set backspace=indent,eol,start
 set hlsearch
@@ -85,20 +71,6 @@ noremap H ^
 noremap L $
 
 set showcmd
-
-let g:Tex_IgnoredWarnings =
-            \"Underfull\n".
-            \"Overfull\n".
-            \"specifier changed to\n".
-            \"You have requested\n".
-            \"Missing number, treated as zero.\n".
-            \"There were undefined references\n".
-            \"Citation %.%# undefined\n".
-            \'LaTeX Font Warning:'"
-" This number N says that latex-suite should ignore the first N of the above.
-let g:Tex_IgnoreLevel = 8
-
-
 
 " remember cursor position
 set viewoptions=cursor,folds
@@ -125,8 +97,6 @@ nnoremap <C-l> <C-w>l
 
 nnoremap <leader>a :Ack
 
-nnoremap <F5> :GundoToggle<CR>
-
 set wildignore=*.pyc,*.class,*.obj,*.o,.git,.hg,.svn,.ropeproject
 
 set guioptions-=T
@@ -136,18 +106,6 @@ set guioptions-=T
 
 " Use space to open/close folds
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
-
-set laststatus=2
-set statusline=
-set statusline+=[%F]
-"set statusline+=[%{expand('%:p:h')}/%F]
-"set statusline+=[TYPE=%Y]
-set statusline+=%h%M%r%w%=
-set statusline+=\ %{fugitive#statusline()}\ 
-set statusline+=[FORMAT=%{&ff}]
-set statusline+=[POS=%04l,%04v]
-set statusline+=[%p%%]
-set statusline+=%*
 
 highlight StatusLine ctermfg=black ctermbg=green cterm=NONE
 highlight StatusLineNC ctermfg=black ctermbg=lightblue cterm=NONE
@@ -185,6 +143,9 @@ endfunction
 
 call SetArrowKeysAsTextShifters()
 " }}}
+
+nnoremap <F5> :GundoToggle<CR>
+nnoremap <F7> <Esc>:NERDTreeToggle<cr>
 nnoremap <F8> :TagbarToggle<CR>
 
 let g:jedi#popup_on_dot = 0
@@ -225,3 +186,6 @@ endif
 
 set nolist
 
+set laststatus=2
+let g:airline_theme='kalisi'
+let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
