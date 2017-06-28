@@ -34,6 +34,7 @@ augroup vimrc_main
     autocmd FocusLost * :wa
 
     autocmd BufWritePre *.py :%s/\s\+$//e
+    autocmd BufWritePre *.md :%s/\s\+$//e
 augroup END
 
 source ~/.vim/cyr_keys.vim
@@ -188,4 +189,8 @@ set nolist
 
 set laststatus=2
 let g:airline_theme='kalisi'
-let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
+"let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
+let g:syntastic_python_checkers = ['pyflakes']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
