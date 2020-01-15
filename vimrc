@@ -1,4 +1,4 @@
-source ~/.vim/vundle.vim
+source ~/.vim/plugins.vim
 
 syntax on
 set magic
@@ -29,7 +29,7 @@ augroup vimrc_main
 
     " When vimrc is edited, reload it
     autocmd bufwritepost .vimrc source ~/.vimrc
-    autocmd bufwritepost vundle.vim source ~/.vim/vundle.vim
+    autocmd bufwritepost plugins.vim source ~/.vim/plugins.vim
 
     autocmd FocusLost * :wa
 
