@@ -41,6 +41,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/jpythonfold.vim'
 Plug 'ehamberg/vim-cute-python'
 
+Plug 'dense-analysis/ale'
+
 call plug#end()
 
 filetype plugin indent on     " required!
