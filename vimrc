@@ -202,4 +202,41 @@ let g:ale_fixers = {
 \       'goimports',
 \       'gofmt',
 \   ],
+\	'python': [
+\		'black',
+\	],
+\	'typescript': [
+\		'prettier',
+\	],
+\	'typescriptreact': [
+\		'prettier',
+\	],
 \}
+
+set colorcolumn=80
+
+" Set this variable to 1 to fix files when you save them.
+let g:ale_fix_on_save = 1
+
+augroup TypeJavaScriptLint
+	au!
+	au FileType typescript let g:ale_linters =
+				\{
+				\'typescript': ['prettier', 'tsserver']
+				\}
+
+	au FileType typescriptreact let g:ale_linters =
+				\{
+				\'typescriptreact': ['prettier', 'tsserver']
+				\}
+
+	au FileType javascript let g:ale_linters =
+				\{
+				\'javascript': ['prettier']
+				\}
+
+	au FileType javascriptreact let g:ale_linters =
+				\{
+				\'javascriptreact': ['prettier']
+				\}
+augroup END
