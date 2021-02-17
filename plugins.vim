@@ -43,6 +43,11 @@ Plug 'ehamberg/vim-cute-python'
 
 Plug 'dense-analysis/ale'
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
+Plug 'google/vim-jsonnet'
+
+
 call plug#end()
 
 filetype plugin indent on     " required!

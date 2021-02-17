@@ -1,3 +1,6 @@
+set pythonthreedll=/opt/local/Library/Frameworks/Python.framework/Versions/3.8/Python
+py3 pass
+
 source ~/.vim/plugins.vim
 
 syntax on
@@ -159,11 +162,7 @@ nnoremap <C-]> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap K a<cr><esc>k$
 
 " PyMatcher for CtrlP
-if !has('python')
-    echo 'In order to use pymatcher plugin, you need +python compiled vim'
-else
-    let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-endif
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 " Set delay to prevent extra search
 let g:ctrlp_lazy_update = 350
@@ -208,8 +207,20 @@ let g:ale_fixers = {
 \	'typescript': [
 \		'prettier',
 \	],
+\   'javascript': [
+\       'prettier',
+\   ],
 \	'typescriptreact': [
 \		'prettier',
+\	],
+\ 	'proto': [
+\		'trim_whitespace',
+\	],
+\ 	'bzl': [
+\		'buildifier',
+\	],
+\ 	'sh': [
+\		'shfmt',
 \	],
 \}
 
@@ -239,4 +250,21 @@ augroup TypeJavaScriptLint
 				\{
 				\'javascriptreact': ['prettier']
 				\}
+	au FileType go let g:ale_linters =
+				\{
+				\'go': ['golint']
+				\}
+	au FileType proto set expandtab
 augroup END
+
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+let g:go_highlight_types = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1 
+let g:go_highlight_extra_types = 1
+
+let g:jsonnet_fmt_options = "--string-style l"
+

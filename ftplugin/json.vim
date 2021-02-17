@@ -1,0 +1,2 @@
+set nofixendofline
+set noeol
