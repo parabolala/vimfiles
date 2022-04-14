@@ -5,3 +5,5 @@ function! FormatBZL(buffer) abort
 endfunction
 
 execute ale#fix#registry#Add('buildifier', 'FormatBZL', ['bzl'], 'Buildifier for bzl')
+set expandtab
+set tabstop=4

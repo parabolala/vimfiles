@@ -19,6 +19,7 @@ set wildmenu
 set wrapscan
 set splitright
 set splitbelow
+set autoread
 
 filetype plugin indent on
 augroup vimrc_main
@@ -111,6 +112,8 @@ set guioptions-=T
 " Use space to open/close folds
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
 
+set foldlevel=3
+
 highlight StatusLine ctermfg=black ctermbg=green cterm=NONE
 highlight StatusLineNC ctermfg=black ctermbg=lightblue cterm=NONE
 
@@ -201,9 +204,6 @@ let g:ale_fixers = {
 \       'goimports',
 \       'gofmt',
 \   ],
-\	'python': [
-\		'black',
-\	],
 \	'typescript': [
 \		'prettier',
 \	],
@@ -215,6 +215,7 @@ let g:ale_fixers = {
 \	],
 \ 	'proto': [
 \		'trim_whitespace',
+\       'protolint',
 \	],
 \ 	'bzl': [
 \		'buildifier',
@@ -222,6 +223,12 @@ let g:ale_fixers = {
 \ 	'sh': [
 \		'shfmt',
 \	],
+\	'python': [
+\		'black',
+\	],
+\	'html': [
+\   'prettier',
+\   ],
 \}
 
 set colorcolumn=80
@@ -243,9 +250,8 @@ augroup TypeJavaScriptLint
 
 	au FileType javascript let g:ale_linters =
 				\{
-				\'javascript': ['prettier']
+				\'javascript': ['prettier', 'eslint']
 				\}
-
 	au FileType javascriptreact let g:ale_linters =
 				\{
 				\'javascriptreact': ['prettier']

@@ -46,6 +46,9 @@ Plug 'dense-analysis/ale'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 Plug 'google/vim-jsonnet'
+Plug 'rust-lang/rust.vim'
+
+Plug 'tidalcycles/vim-tidal'
 
 
 call plug#end()
